@@ -14,6 +14,7 @@ use App\Http\Controllers\CrudUserController;
 |
 */
 
+Route::get('/', [CrudUserController::class, 'index'])->name('index');
 Route::get('dashboard', [CrudUserController::class, 'dashboard']);
 
 Route::get('login', [CrudUserController::class, 'login'])->name('login');
@@ -33,6 +34,4 @@ Route::get('list', [CrudUserController::class, 'listUser'])->name('user.list');
 
 Route::get('signout', [CrudUserController::class, 'signOut'])->name('signout');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+

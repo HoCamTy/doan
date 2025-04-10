@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Auth;
  */
 class CrudUserController extends Controller
 {
-
+    public function index()
+    {
+        return view('crud_user.index'); 
+    }
     /**
      * Login page
      */

@@ -3,14 +3,15 @@
 @section('content')
     <main class="login-form">
         <div class="container">
+            <h2> Danh Sách User</h2>
             <div class="row justify-content-center">
                 <table>
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>Username</th>
                             <th>Email</th>
-                            <th>Action</th>
+                            <th>Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="footer">
+        Lập trình web @01/2024
+    </div>
             </div>
         </div>
     </main>
