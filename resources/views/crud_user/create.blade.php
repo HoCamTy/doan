@@ -39,11 +39,18 @@
                 <div class="d-grid mx-auto">
                     <button type="submit" class="btn btn-dark btn-block">Đăng ký</button>
                 </div>
+                <div class="form-group mb-3">
+    <label for="avatar">Ảnh đại diện</label>
+    <input type="file" id="avatar" name="avatar" class="form-control">
+    @if ($errors->has('avatar'))
+        <span class="text-danger">{{ $errors->first('avatar') }}</span>
+    @endif
+</div>
 
             </form>
         </div>
         <div class="footer">
-        Lập trình web @01/2024
+        Màn hình đăng kí
     </div>
 
     </div>

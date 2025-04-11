@@ -30,7 +30,7 @@
                     </tbody>
                 </table>
                 <div class="footer">
-        Lập trình web @01/2024
+       Danh sách user
     </div>
             </div>
         </div>

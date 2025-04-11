@@ -62,6 +62,7 @@ class CrudUserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $data = $request->all();
@@ -149,4 +150,33 @@ class CrudUserController extends Controller
 
         return Redirect('login');
     }
+
+    public function indexspa(Request $request)
+{
+    {
+        $appointments = Appointment::orderBy('datetime', 'asc')->get(); // hoặc thêm điều kiện lọc
+        return view('appointments.index', compact('appointments'));
+    }
+    $query = Appointment::query();
+
+    if ($request->filled('date')) {
+        $query->whereDate('datetime', $request->date);
+    }
+    if ($request->filled('status')) {
+        $query->where('status', $request->status);
+    }
+    if ($request->filled('service')) {
+        $query->where('service', $request->service);
+    }
+    if ($request->filled('staff')) {
+        $query->where('staff', $request->staff);
+    }
+
+    $appointments = $query->orderBy('datetime')->get();
+
+    return view('appointments.index', compact('appointments'));
 }
+
+}
+
+

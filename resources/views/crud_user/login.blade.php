@@ -33,6 +33,6 @@
     </div>
 
     <div class="footer">
-        Lập trình web @01/2024
+        Màn hình đăng nhập
     </div>
 @endsection
