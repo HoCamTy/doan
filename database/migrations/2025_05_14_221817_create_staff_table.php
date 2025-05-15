@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('staff_name',100);
             $table->string('staff_phone',15)->unique();
             $table->string('email',100);
+            $table->string('role_name',100);
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class StaffController extends Controller
      */
     public function create()
     {
-                return view('staff.add');
+        return view('staff.add');
 
     }
 
@@ -30,7 +30,16 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        $validated = $request->validate([
+            'staff_name' => 'required|string|max:255',
+            'staff_phone' => 'required|digits_between:9,11|unique:staff,staff_phone',
+            'email' => 'required|email|unique:staff,email',
+            'role_name' => 'required|string|max:255',
+        ]);
+        Staff::create($validated);
+
+        return redirect()->route('staffs.index')->with('success', 'Thêm nhân viên thành công!');
     }
 
     /**
@@ -46,7 +55,8 @@ class StaffController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $staff = Staff::findOrFail($id);
+    return view('staff.edit', compact('staff'));
     }
 
     /**
@@ -54,7 +64,18 @@ class StaffController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+          $staff = Staff::findOrFail($id);
+
+    $validated = $request->validate([
+        'staff_name'   => 'required|string|max:255',
+        'staff_phone'  => 'required|digits_between:9,11|unique:staff,staff_phone,' . $staff->id,
+        'email'        => 'required|email|unique:staff,email,' . $staff->id,
+        'role_name'    => 'required|string|max:255',
+    ]);
+
+    $staff->update($validated);
+
+    return redirect()->route('staffs.index')->with('success', 'Cập nhật nhân viên thành công!');
     }
 
     /**

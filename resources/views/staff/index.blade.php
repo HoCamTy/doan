@@ -35,7 +35,7 @@
                     <td>{{ $staff->staff_name }}</td>
                     <td>{{ $staff->staff_phone }}</td>
                     <td>{{ $staff->email }}</td>
-                    <td>Nhân Viên</td>
+                    <td>{{ $staff->role_name }}</td>
                     <td class="text-center">
                         <a href="{{ route('staffs.edit', $staff->id) }}" class="btn btn-outline-primary btn-sm">
                             <i class="bi bi-pencil-square"></i> Chỉnh sửa

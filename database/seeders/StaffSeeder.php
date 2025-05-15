@@ -22,6 +22,7 @@ class StaffSeeder extends Seeder
                 'staff_name' =>fake()->name(),
                 'staff_phone' =>fake()->unique()->numerify('09#########'),
                 'email' =>fake()->unique()->safeEmail(),
+                'role_name'=>fake()->name() . $i,
                 'created_at' => now(),
                 'updated_at' => now(),
             ];
